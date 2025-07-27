@@ -2,7 +2,7 @@ import {create} from 'zustand'
 import dotenv from 'dotenv'
 dotenv.config();
 
-const API_URL=process.env.API_URL;
+const API_URL="https://myproductstore-frontend.onrender.com";
 
 export const useProductStore=create((set)=>({
     products:[],
