@@ -15,6 +15,7 @@ export default defineConfig({
         target:process.env.API_URL
       },
     },
-    port:process.env.PORT || 4000
+    port:process.env.PORT || 4000,
+    host:'0.0.0.0'
   },
 });
