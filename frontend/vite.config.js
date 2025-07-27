@@ -18,4 +18,7 @@ export default defineConfig({
     port:process.env.PORT || 4000,
     host:'0.0.0.0'
   },
+  preview:{
+    allowedHosts:"myproductstore-frontend-2wg5.onrender.com"
+  }
 });
