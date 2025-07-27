@@ -12,7 +12,7 @@ export default defineConfig({
   server:{
     proxy:{
       "/api":{
-        target:process.env.API_URL
+        target:"https://myproductstore-frontend.onrender.com"
       },
     },
     port:process.env.PORT || 4000,
@@ -20,5 +20,6 @@ export default defineConfig({
   },
   preview:{
     allowedHosts:"myproductstore-frontend-2wg5.onrender.com"
-  }
+  },
+  
 });
