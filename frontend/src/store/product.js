@@ -1,4 +1,8 @@
 import {create} from 'zustand'
+import dotenv from 'dotenv'
+dotenv.config();
+
+const API_URL=process.env.API_URL;
 
 export const useProductStore=create((set)=>({
     products:[],
@@ -7,7 +11,7 @@ export const useProductStore=create((set)=>({
         if(!newProduct.name || newProduct.price===undefined || !newProduct.image){
             return { success:false, message:"Please fill in all the details"};
         }
-        const res=await fetch("/api/products",{
+        const res=await fetch(`${API_URL}/api/products`,{
             method:"POST",
             headers:{
                 "Content-Type":"application/json",
@@ -20,12 +24,12 @@ export const useProductStore=create((set)=>({
         return { success:true, message:"Product created successfully"};
     },
     fetchProducts:async()=>{
-        const res=await fetch('/api/products');
+        const res=await fetch(`${API_URL}/api/products`);
         const data=await res.json();
         set({products: data.data});
     },
     deleteProduct:async(pid)=>{
-        const res=await fetch(`/api/products/${pid}`,{
+        const res=await fetch(`${API_URL}/api/products/${pid}`,{
             method:"DELETE",
         });
         const data=await res.json();
@@ -35,7 +39,7 @@ export const useProductStore=create((set)=>({
         return { success:true, message:data.message};
     },
     updateProduct:async(pid,updatedProduct)=>{
-        const res=await fetch(`/api/products/${pid}`,{
+        const res=await fetch(`${API_URL}/api/products/${pid}`,{
             method:"PUT",
             headers:{
                 "Content-Type":"application/json",
