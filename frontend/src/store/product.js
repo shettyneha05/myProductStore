@@ -1,6 +1,6 @@
 import {create} from 'zustand'
-import dotenv from 'dotenv'
-dotenv.config();
+// import dotenv from 'dotenv'
+// dotenv.config();
 
 const API_URL="https://myproductstore-frontend.onrender.com";
 
